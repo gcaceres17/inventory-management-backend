@@ -41,3 +41,16 @@ def login(usuario: schemas.UsuarioLogin, db: Session = Depends(get_db)):
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Error al iniciar sesión: {str(e)}")
     
+@router.post("/logout")
+def logout():
+    try:
+        response = {"message": "Sesión cerrada exitosamente"}
+        # Devolver respuesta con instrucción de eliminar el token
+        return {
+            **response,
+            "access_token": None,
+            "token_type": None
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error al cerrar sesión: {str(e)}")
+

@@ -16,3 +16,17 @@ class Usuario(UsuarioBase):
 class UsuarioLogin(BaseModel):
     email: str
     password: str
+    
+class InventoryItemBase(BaseModel):
+    name: str
+    quantity: int
+    price: float
+
+class InventoryItemCreate(InventoryItemBase):
+    pass
+
+class InventoryItem(InventoryItemBase):
+    id: int
+
+    class Config:
+        orm_mode = True
