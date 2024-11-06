@@ -30,3 +30,31 @@ class InventoryItem(InventoryItemBase):
 
     class Config:
         orm_mode = True
+        
+class PurchaseOrderBase(BaseModel):
+    item_name: str
+    quantity: int 
+    price: float
+
+class PurchaseOrderCreate(PurchaseOrderBase):
+    pass
+
+class PurchaseOrder(PurchaseOrderBase):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+class CustomerBase(BaseModel):
+    name: str
+    email: str
+    phone: str
+
+class CustomerCreate(CustomerBase):
+    pass
+
+class Customer(CustomerBase):
+    id: int
+
+    class Config:
+        orm_mode = True
