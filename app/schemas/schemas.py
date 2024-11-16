@@ -58,3 +58,12 @@ class Customer(CustomerBase):
 
     class Config:
         orm_mode = True
+
+class Dashboard(BaseModel):
+    total_customers: int
+    total_orders: int
+    total_items: int
+    total_sales: float
+
+
+

@@ -33,4 +33,10 @@ class Customer(Base):
     email = Column(String, unique=True, index=True)
     phone = Column(String)  
     
-    
+class Dashboard(Base):
+    __tablename__ = "dashboard"
+
+    total_customers = Column(Integer, primary_key=True, index=True) 
+    total_orders = Column(Integer)
+    total_items = Column(Integer)
+    total_sales = Column(Float)

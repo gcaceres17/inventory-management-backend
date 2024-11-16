@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from .database.database import engine
 from .models import models
-from .router import inventory_routes, user_routes, purchase_order_routes, customer_routes
+from .router import inventory_routes, user_routes, purchase_order_routes, customer_routes, dashboard_routes
 from fastapi.middleware.cors import CORSMiddleware
 
 models.Base.metadata.create_all(bind=engine)
@@ -28,6 +28,7 @@ app.include_router(user_routes.router)
 app.include_router(inventory_routes.router)
 app.include_router(purchase_order_routes.router)
 app.include_router(customer_routes.router)
+app.include_router(dashboard_routes.router)
 
 @app.get("/")
 def read_root():
